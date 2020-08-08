@@ -50,6 +50,10 @@ To install::
     """
 
     cats_dataframe = wikidata2df(cat_query) # Returns a Pandas DataFrame
+    
+You can also use it in the command line, if you have text file with a SPARQL query::
+
+    $ wikidata2csv -q query.rq -o query_results.csv
 
 Alternatives
 ------------
