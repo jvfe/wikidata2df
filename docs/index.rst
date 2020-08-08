@@ -1,5 +1,5 @@
 Welcome to wikidata2df's documentation!
-======================================
+=======================================
 
 .. toctree::
    :maxdepth: 2

@@ -14,19 +14,53 @@ wikidata2df
         :alt: Documentation Status
 
 
-
-
 Utility package for easily turning a SPARQL query into a dataframe
+
+Ever wished you could easily and programatically get data from Wikidata into a nice and analysable Pandas DataFrame?
+Well, this package solves that problem: With a single function you can turn your SPARQL query into a pandas DataFrame,
+without having to deal with the messy JSON intermediate. 
 
 
 * Free software: BSD license
 * Documentation: https://wikidata2df.readthedocs.io.
 
 
-Features
---------
+Basic Usage
+-----------
 
-* TODO
+To install::
+
+    $ pip install wikidata2df
+
+
+::
+
+    from wikidata2df import wikidata2df
+
+    # A SPARQL query to return all cats in Wikidata!    
+
+    cat_query = """
+    #Cats
+    SELECT ?item ?itemLabel 
+    WHERE 
+    {
+    ?item wdt:P31 wd:Q146.
+    SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+    }
+    """
+
+    cats_dataframe = wikidata2df(cat_query) # Returns a Pandas DataFrame
+
+Alternatives
+------------
+
+* Maybe you want more sofisticated functions? Or a way to edit Wikidata programatically? Awesome!
+
+        * Check out `WikidataIntegrator <https://github.com/SuLab/WikidataIntegrator>`__
+
+* Would you rather use R? That's cool too!
+
+        * Check out `WikidataQueryServiceR <https://github.com/wikimedia/WikidataQueryServiceR>`__
 
 Credits
 -------

@@ -27,7 +27,13 @@ def main():
 
 
 def wikidata2csv(query_file, outfile):
-    """Runs a wikidata query from a file"""
+    """Runs a wikidata query from a file
+
+    Args: 
+        query_file(str): A path to a text file containing a valid SPARQL query
+        outfile(str): A path to the output csv file
+    
+    """
     with open(query_file, "r") as q:
         query_string = q.read()
 
