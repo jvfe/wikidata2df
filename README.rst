@@ -6,8 +6,8 @@ wikidata2df
 .. image:: https://img.shields.io/pypi/v/wikidata2df.svg
         :target: https://pypi.python.org/pypi/wikidata2df
 
-.. image:: https://img.shields.io/travis/jvfe/wikidata2df.svg
-        :target: https://travis-ci.com/jvfe/wikidata2df
+.. image:: https://github.com/jvfe/wikidata2df/workflows/pytest/badge.svg
+        :target: https://github.com/jvfe/wikidata2df/actions
 
 .. image:: https://readthedocs.org/projects/wikidata2df/badge/?version=latest
         :target: https://wikidata2df.readthedocs.io/en/latest/?badge=latest
@@ -18,7 +18,7 @@ Utility package for easily turning a SPARQL query into a dataframe
 
 Ever wished you could easily and programatically get data from Wikidata into a nice and analysable Pandas DataFrame?
 Well, this package solves that problem: With a single function you can turn your SPARQL query into a pandas DataFrame,
-without having to deal with the messy JSON intermediate. 
+without having to deal with the messy JSON intermediate.
 
 
 * Free software: BSD license
@@ -37,12 +37,12 @@ To install::
 
     from wikidata2df import wikidata2df
 
-    # A SPARQL query to return all cats in Wikidata!    
+    # A SPARQL query to return all cats in Wikidata!
 
     cat_query = """
     #Cats
-    SELECT ?item ?itemLabel 
-    WHERE 
+    SELECT ?item ?itemLabel
+    WHERE
     {
     ?item wdt:P31 wd:Q146.
     SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
@@ -50,7 +50,7 @@ To install::
     """
 
     cats_dataframe = wikidata2df(cat_query) # Returns a Pandas DataFrame
-    
+
 You can also use it in the command line, if you have text file with a SPARQL query::
 
     $ wikidata2csv -q query.rq -o query_results.csv
